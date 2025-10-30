@@ -39,53 +39,56 @@ html { scroll-behavior: smooth; }
 
 <body class="font-sans bg-background text-primary">
 
-<!-- ✅ Navigation Bar -->
-<header class="fixed top-0 left-0 w-full bg-primary text-white shadow-md z-50">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="#home" class="text-2xl font-extrabold text-secondary"></a>
-    <nav class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="#home" class="hover:text-secondary transition">Home</a>
-      <a href="#about" class="hover:text-secondary transition">About</a>
-      <a href="#experience" class="hover:text-secondary transition">Experience</a>
-      <a href="#projects" class="hover:text-secondary transition">Projects</a>
-      <a href="#skills" class="hover:text-secondary transition">Skills</a>
-      <a href="#contact" class="hover:text-secondary transition">Contact</a>
+<!-- Navigation Bar -->
+<header class="bg-primary shadow-md fixed w-full z-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+    <!-- Logo / Name -->
+    <a href="#home" class="text-white text-2xl font-bold"></a>
+
+    <!-- Desktop Links -->
+    <nav class="hidden md:flex space-x-8">
+      <a href="#home" class="text-white hover:text-secondary transition duration-300">Home</a>
+      <a href="#about" class="text-white hover:text-secondary transition duration-300">About</a>
+      <a href="#experience" class="text-white hover:text-secondary transition duration-300">Experience</a>
+      <a href="#projects" class="text-white hover:text-secondary transition duration-300">Projects</a>
+      <a href="#skills" class="text-white hover:text-secondary transition duration-300">Skills</a>
+      <a href="#contact" class="text-white hover:text-secondary transition duration-300">Contact</a>
     </nav>
-    <button id="menu-toggle" class="md:hidden text-secondary focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
   </div>
 
-  <div id="mobile-menu" class="hidden bg-primary md:hidden">
-    <nav class="flex flex-col space-y-3 py-4 text-center">
-      <a href="#home" class="hover:text-secondary transition">Home</a>
-      <a href="#about" class="hover:text-secondary transition">About</a>
-      <a href="#experience" class="hover:text-secondary transition">Experience</a>
-      <a href="#projects" class="hover:text-secondary transition">Projects</a>
-      <a href="#skills" class="hover:text-secondary transition">Skills</a>
-      <a href="#contact" class="hover:text-secondary transition">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<!-- Padding for Navbar -->
-<main class="pt-24">
-
-    <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden bg-primary md:hidden">
-    <nav class="flex flex-col space-y-3 py-4 text-center">
-      <a href="#home" class="hover:text-secondary transition">Home</a>
-      <a href="#about" class="hover:text-secondary transition">About</a>
-      <a href="#experience" class="hover:text-secondary transition">Experience</a>
-      <a href="#projects" class="hover:text-secondary transition">Projects</a>
-      <a href="#skills" class="hover:text-secondary transition">Skills</a>
-      <a href="#contact" class="hover:text-secondary transition">Contact</a>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-primary shadow-md">
+    <nav class="flex flex-col space-y-4 px-4 py-4">
+      <a href="#home" class="text-white hover:text-secondary transition duration-300">Home</a>
+      <a href="#about" class="text-white hover:text-secondary transition duration-300">About</a>
+      <a href="#experience" class="text-white hover:text-secondary transition duration-300">Experience</a>
+      <a href="#projects" class="text-white hover:text-secondary transition duration-300">Projects</a>
+      <a href="#skills" class="text-white hover:text-secondary transition duration-300">Skills</a>
+      <a href="#contact" class="text-white hover:text-secondary transition duration-300">Contact</a>
     </nav>
   </div>
 </header>
+
+<!-- Script for Mobile Menu Toggle -->
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
 
 
 
@@ -174,10 +177,12 @@ transition: width 1s ease-out;
                     <a href="#contact" class="bg-secondary text-primary px-8 py-3 rounded-full text-lg font-bold shadow-lg hover:opacity-90 transform transition duration-300 inline-block text-center">
                         Get In Touch
                     </a>
-                    <a href="javascript:void(0);" onclick="showMessage('Download Resume function initiated (mock action).')" class="bg-primary border-2 border-primary text-white px-8 py-3 rounded-full text-lg font-bold shadow-lg hover:bg-gray-800 transition duration-300 inline-block text-center">
-                        Download Resume
-                    </a>
-                </div>
+<a href="resume.pdf" download
+   class="bg-primary border-2 border-primary text-white px-8 py-3 rounded-full text-lg
+          font-bold shadow-lg hover:bg-gray-800 transition duration-300 inline-block text-center">
+   Download Resume
+</a>
+
                 
                 <!-- Scroll Down Indicator -->
                 <div class="mt-20 flex flex-col items-center">
